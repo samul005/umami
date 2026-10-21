@@ -1,1 +1,21 @@
-<svg fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 428 389.11"><circle cx="214.15" cy="181" r="171" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="20"/><path d="M413 134.11H15.29a15 15 0 0 0-15 15v15.3C.12 168 0 171.52 0 175.11c0 118.19 95.81 214 214 214 116.4 0 211.1-92.94 213.93-208.67 0-.44.07-.88.07-1.33v-30a15 15 0 0 0-15-15Z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="vistiq-bg" x1="5" y1="4" x2="59" y2="61" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5146E5"/>
+      <stop offset="0.52" stop-color="#4263F5"/>
+      <stop offset="1" stop-color="#22B8F0"/>
+    </linearGradient>
+    <linearGradient id="vistiq-shine" x1="12" y1="7" x2="52" y2="57" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="62" height="62" rx="16" fill="url(#vistiq-bg)"/>
+  <rect x="1" y="1" width="62" height="62" rx="16" fill="url(#vistiq-shine)"/>
+  <path d="M15 47.5H49" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="2.8" stroke-linecap="round"/>
+  <rect x="16" y="34" width="7" height="11" rx="2.2" fill="#FFFFFF"/>
+  <rect x="28.5" y="27" width="7" height="18" rx="2.2" fill="#FFFFFF"/>
+  <rect x="41" y="19" width="7" height="26" rx="2.2" fill="#FFFFFF"/>
+  <path d="M17.5 29.5L29.8 22.8L37.1 25.1L48 13.5" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="48" cy="13.5" r="3.2" fill="#FFFFFF"/>
+</svg>
