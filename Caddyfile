@@ -1,0 +1,3 @@
+vistiq.promptgallery.in {
+    reverse_proxy vistiq:3000
+}

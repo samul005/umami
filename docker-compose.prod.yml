@@ -1,0 +1,55 @@
+services:
+  vistiq:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: vistiq-analytics:latest
+    restart: always
+    environment:
+      DATABASE_URL: postgresql://vistiq:9c74b06e5522fb46da19c7b65e7cf5ad@db:5432/vistiq
+      DATABASE_TYPE: postgresql
+      APP_SECRET: b29e18bfdd506be69e1dd3c5521e96c70a052db4aab702ed1c481b4129115fdb
+      TWO_FACTOR_ENCRYPTION_KEY: bd880cdc12bd4757c1daa81c3149c02c252e8d9dd873d20002b30e4ad8a10ee3
+      CLIENT_TRACKER_URL: https://vistiq.promptgallery.in/script.js
+    depends_on:
+      db:
+        condition: service_healthy
+    init: true
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3000/api/heartbeat || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: vistiq
+      POSTGRES_USER: vistiq
+      POSTGRES_PASSWORD: 9c74b06e5522fb46da19c7b65e7cf5ad
+    volumes:
+      - vistiq-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vistiq -d vistiq"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  caddy:
+    image: caddy:2-alpine
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - vistiq
+
+volumes:
+  vistiq-db-data:
+  caddy_data:
+  caddy_config:
