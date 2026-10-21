@@ -1,7 +1,7 @@
 {
-  "name": "umami",
+  "name": "vistiq",
   "version": "3.4.0",
-  "description": "A modern, privacy-focused alternative to Google Analytics.",
+  "description": "Vistiq Analytics - A modern, privacy-focused analytics platform.",
   "author": "Umami Software, Inc. <hello@umami.is>",
   "license": "MIT",
   "homepage": "https://umami.is",

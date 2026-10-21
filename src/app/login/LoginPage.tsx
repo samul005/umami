@@ -6,6 +6,8 @@ import { useLoginQuery } from '@/components/hooks';
 import { LoginForm } from './LoginForm';
 import { PropsWithChildren } from 'react';
 
+import { LoadingScreen } from '@/components/common/LoadingScreen';
+
 export function LoginPageWrapper({ children }: PropsWithChildren) {
   const { user, isLoading } = useLoginQuery();
   const router = useRouter();
@@ -17,7 +19,7 @@ export function LoginPageWrapper({ children }: PropsWithChildren) {
   }, [user, router]);
 
   if (isLoading || user) {
-    return <Loading placement="absolute" />;
+    return <LoadingScreen />;
   }
 
   return (

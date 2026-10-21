@@ -15,6 +15,7 @@ import {
 import { TwoFactorSetupModal } from '@/components/modals/TwoFactorSetupModal';
 import { LAST_TEAM_CONFIG } from '@/lib/constants';
 import { removeItem, setItem } from '@/lib/storage';
+import { LoadingScreen } from '@/components/common/LoadingScreen';
 import { UpdateNotice } from './UpdateNotice';
 
 export function App({ children }) {
@@ -41,7 +42,7 @@ export function App({ children }) {
   }, [teamId, teamError, router]);
 
   if (isLoading || !config || (teamId && isTeamLoading)) {
-    return <Loading placement="absolute" />;
+    return <LoadingScreen />;
   }
 
   if (error) {
